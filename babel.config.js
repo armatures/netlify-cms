@@ -19,6 +19,7 @@ const defaultPlugins = [
   '@babel/plugin-proposal-class-properties',
   '@babel/plugin-proposal-object-rest-spread',
   '@babel/plugin-proposal-export-default-from',
+  '@babel/plugin-proposal-optional-chaining',
   [
     'module-resolver',
     isESM
@@ -46,6 +47,7 @@ const defaultPlugins = [
             localforage: 'localforage',
             redux: 'redux',
           },
+          extensions: ['.js', '.jsx', '.es', '.es6', '.mjs', '.ts', '.tsx'],
         }
       : {
           root: path.join(__dirname, 'packages/netlify-cms-core/src/components'),
@@ -64,12 +66,13 @@ const defaultPlugins = [
             localforage: 'localforage',
             redux: 'redux',
           },
+          extensions: ['.js', '.jsx', '.es', '.es6', '.mjs', '.ts', '.tsx'],
         },
   ],
 ];
 
 const presets = () => {
-  return ['@babel/preset-react', '@babel/preset-env'];
+  return ['@babel/preset-react', '@babel/preset-env', '@babel/typescript'];
 };
 
 const plugins = () => {
